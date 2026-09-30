@@ -18,7 +18,9 @@ COUNT_QUERIES = {
 
 
 def connect():
-    """Connect to the lab's mock database."""
+    """
+    Connect to the lab's mock database.
+    """
     global _password
     if _password is None:
         _password = os.getenv("DBPASS") or os.getenv("MYSQL_PWD") or getpass.getpass("Database password: ")
@@ -36,7 +38,9 @@ def connect():
 
 
 def fetch(query, parameters=()):
-    """Run a SELECT query and return its rows."""
+    """
+    Run a SELECT query and return its rows.
+    """
     connection = None
     cursor = None
     try:
@@ -57,14 +61,18 @@ def fetch(query, parameters=()):
 
 
 def get_data_by_group(value):
-    """Return all mock rows whose group equals value."""
+    """
+    Return all mock rows whose group equals value.
+    """
     rows = fetch("SELECT * FROM mock WHERE `group` = %s", (value,))
     logging.info("Found %d rows for group %s", len(rows), value)
     return rows
 
 
 def plot_counts(groupby):
-    """Return the number of mock rows for each value of a column."""
+    """
+    Return the number of mock rows for each value of a column.
+    """
     if groupby not in COUNT_QUERIES:
         raise ValueError("Unknown column: " + groupby)
     rows = fetch(COUNT_QUERIES[groupby])
@@ -73,7 +81,9 @@ def plot_counts(groupby):
 
 
 def main():
-    """Display sample rows for one group and counts by group."""
+    """
+    Display sample rows for one group and counts by group
+    """
     logging.basicConfig(level=logging.INFO)
     matches = get_data_by_group("item1")
     print("Rows in item1:", len(matches))

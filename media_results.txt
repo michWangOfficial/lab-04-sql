@@ -1,0 +1,4 @@
+user_id	user_name	user_address	user_postal_code	post_id	user_id	post_cont
+89	WhiteCloverMarkets	305 - 14th Ave. S. Suite 3B	98128	201	89	Ni hao, shijie!
+89	WhiteCloverMarkets	305 - 14th Ave. S. Suite 3B	98128	204	89	Annyeonghaseyo, segye!
+89	WhiteCloverMarkets	305 - 14th Ave. S. Suite 3B	98128	207	89	Hallo, Welt!
